@@ -77,11 +77,24 @@ Below is an example `config.yaml`:
 ```yaml
 news:
   keywords:
-    - "prisão de bolsonaro"
-  reference_start: "2025-11-20"
+    - "paciente morre à espera de atendimento"
+    - "paciente morre na fila de atendimento"
+    - "fila de atendimento no SUS"
+    - "hospital público lotado"
+    - "UPA lotada"
+    - "pronto-socorro lotado"
+    - "falta de leito no hospital"
+    - "falta de médico em posto de saúde"
+    - "falta de remédio em posto de saúde"
+    - "unidade básica de saúde sem médico"
+    - "superlotação em hospital público"
+    - "falta de ambulância"
+    - "demora para atendimento médico"
+    - "demora para realização de exame"
+  reference_start: "2025-10-23"
   reference_end: "2025-11-23"
   window: "m"              # d (day), w (week), m (month), y (year)
-  max_iterations: 3
+  max_iterations: 2 # increase for more extensive searches
   stop_when_no_articles: false
   searcher:
     language: "pt"
@@ -89,22 +102,20 @@ news:
     max_results: 100
 
 categories:
-  "prisão": "Arrests, detentions, warrants and similar events."
-  "protestos": "Social demonstrations, marches, protests, strikes."
-  "eleições": "Elections, campaigning, official voting processes."
-  "corrupção": "Corruption scandals, misuse of public funds, bribery."
-  "investigação": "Formal investigations, inquiries, commissions."
-  "decisão judicial": "Court decisions, sentences, judicial rulings."
+  "access_delay": "Casos em que o foco é a demora no atendimento, como longas filas, espera excessiva por consultas, exames ou cirurgias, resultando ou não em agravamento do quadro."
+  "resource_shortage": "Problemas de falta de recursos humanos ou materiais, como ausência de médicos, enfermeiros, leitos, ambulâncias, medicamentos ou equipamentos."
+  "infrastructure_failure": "Situações de precariedade física ou estrutural, como hospitais superlotados, pacientes em macas nos corredores, falta de manutenção, risco sanitário, interdição de unidades, etc."
+  "management_governance": "Casos em que o problema central é gestão, planejamento ou governança do sistema de saúde: má alocação de recursos, decisões administrativas, fechamento de unidades, cortes de orçamento, etc."
+  "health_worker_conditions": "Notícias que enfatizam as condições de trabalho dos profissionais de saúde: sobrecarga, burnout, falta de proteção, greves, jornadas exaustivas."
+  "violence_against_health_workers": "Agressões físicas, verbais ou ameaças contra profissionais de saúde em serviços públicos ou conveniados ao SUS."
+  "corruption_irregularities": "Desvios de recursos, fraudes em contratos, superfaturamento, investigações e escândalos ligados à gestão da saúde pública."
+  "digital_health_issues": "Problemas ligados a prontuário eletrônico, sistemas de regulação, agendamento online ou telemedicina que impactem diretamente o acesso ou a qualidade do atendimento."
 
 llm:
-  # Prefer using an environment variable for the key:
-  api_key_env_var: "OPENROUTER_API_KEY"
-  # Or set it directly here (less secure):
-  # api_key: "sk-..."
+  api_key: "API_KEY" # use your own API key ou a local LLM
   model_name: "mistralai/mistral-nemo"
   base_url: "https://openrouter.ai/api/v1"
   temperature: 0.0
-  max_tokens: 2048
   max_workers: 20
 
 builder:
