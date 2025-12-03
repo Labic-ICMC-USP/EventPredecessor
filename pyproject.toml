@@ -1,0 +1,32 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eventpredecessor"
+version = "0.1.0"
+description = "EventPredecessor: LLM-based 5W1H event extraction and precursor graph from news."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  { name = "Ricardo Marcacini", email = "ricardo.marcacini@icmc.usp.br" }
+]
+
+dependencies = [
+  "langchain-openai>=0.3.35",
+  "langchain-community>=0.3.31",
+  "pydantic>=2.5.0",
+  "gnews>=0.4.2",
+  "python-dateutil>=2.9.0",
+  "sentence-transformers>=2.2.0",
+  "scikit-learn>=1.4.0",
+  "networkx>=3.0.0",
+  "yfiles-jupyter-graphs",
+  "tqdm>=4.0.0",
+  "pyyaml>=6.0.0",
+]
+
+[project.scripts]
+eventpredecessor = "eventpredecessor.runner:main"

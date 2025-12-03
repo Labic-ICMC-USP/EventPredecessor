@@ -1,0 +1,11 @@
+langchain-openai>=0.3.35
+langchain-community>=0.3.31
+pydantic>=2.5.0
+gnews>=0.4.2
+python-dateutil>=2.9.0
+sentence-transformers>=2.2.0
+scikit-learn>=1.4.0
+networkx>=3.0.0
+yfiles-jupyter-graphs
+tqdm>=4.0.0
+pyyaml>=6.0.0
